@@ -6,11 +6,11 @@
 
     **Level**: 3
 
-    **Updated**: 2023-06-14
+    **Updated**: 2025-10-03
 
 ## Summary
 
-This Architecture Decision Record (ADR) mandates that Fast Healthcare Interoperability Resources (FHIR) be the primary standard for all new healthcare interoperability initiatives. This decision is driven by the strategic alignment with the National Data Resource (NDR), which is built on the Google Healthcare platform and natively uses FHIR. Adopting a FHIR-first approach will enhance data exchange, accelerate development, and ensure our systems are future-ready.
+This Architecture Decision Record (ADR) mandates that Fast Healthcare Interoperability Resources (FHIR) be the primary standard for all new healthcare interoperability initiatives. This decision is driven by both the Welsh Health Circular (WHC/2023/018), which mandates FHIR for NHS Wales, and the strategic alignment with the National Data Resource (NDR), which is built on the Google Healthcare platform and natively uses FHIR. Adopting a FHIR-first approach will enhance data exchange, accelerate development, and ensure our systems are future-ready.
 
 ## Drivers
 
