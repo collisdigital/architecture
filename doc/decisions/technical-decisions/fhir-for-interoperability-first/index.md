@@ -6,7 +6,7 @@
 
     **Level**: 3
 
-    **Updated**: 2025-10-03
+    **Updated**: 2023-06-14
 
 ## Summary
 
@@ -16,6 +16,7 @@ This Architecture Decision Record (ADR) mandates that Fast Healthcare Interopera
 
 The primary driver for this decision is the Digital Health and Care Wales (DHCW) investment in the National Data Resource (NDR), a strategic platform based on Google Healthcare's FHIR-native infrastructure. To maximize the value of the NDR and ensure seamless data integration across the Welsh healthcare ecosystem, it is essential to standardize on a common interoperability framework.
 
+*   **National Mandate**: The Welsh Health Circular (WHC/2023/018) formally mandates FHIR as the foundational interoperability standard for all IT and digital systems across NHS Wales, aligning with the FAIR data principles (Findable, Accessible, Interoperable, Reusable).
 *   **Strategic Alignment**: We need to align our interoperability standards with the core platform of the NDR.
 *   **Consistency**: A single, nationally adopted standard is required to prevent fragmented data silos and reduce integration complexity.
 *   **Future-Proofing**: We must adopt a modern, actively developed standard to ensure the long-term viability of our healthcare systems.
@@ -79,6 +80,8 @@ Compliance with this decision will be enforced by the Technical Design Assurance
 If a team believes FHIR is not suitable for their specific use case, they must document their reasoning and propose an alternative. **This proposal must be submitted to the Technical Design Assurance Group (TDAG) in the form of a new Architecture Decision Record for review and approval before proceeding.**
 
 ## More Information
+
+*   [Welsh Health Circular (WHC/2023/018): Introduction of HL7 FHIR as a foundational standard in all NHS Wales Bodies](https://www.gov.wales/introduction-hl7-fhir-foundational-standard-all-nhs-wales-bodies-whc2023018)
 
 The following teams were involved in this decision:
 
