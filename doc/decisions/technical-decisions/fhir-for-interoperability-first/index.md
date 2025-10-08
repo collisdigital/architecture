@@ -46,12 +46,15 @@ Permit teams to select their own interoperability standards (e.g., HL7v2, openEH
 
 * **Legacy System Integration**: Integrating with older systems that do not support FHIR may require custom middleware or converters, adding complexity.
 * **Niche Use Cases**: For some highly specialized use cases, FHIR may not be the most efficient or suitable standard.
+* **Bottlenecks**: Increased dependency on FHIR Standards team for FHIR Profiles where none exist for a specific use case could introduce delays.
 
 ### Option 2: Allow Individual Project-Based Standards
 
 **Pro:**
 
 * **Flexibility**: Teams can choose the standard that is the absolute best fit for their specific, immediate requirements.
+* **Commercial Scope**: Ability to procure 3rd-party systems and products that don't support FHIR,
+providing potential access to a wider set of products.
 
 **Con:**
 
@@ -70,7 +73,7 @@ FHIR is to be considered the primary and default standard for all healthcare int
 * **Pro**: **Improved Interoperability**: Aligns systems with the National Data Resource (NDR) and promotes seamless data exchange.
 * **Pro**: **Accelerated Development**: Teams can reuse common tools and resources, speeding up project delivery.
 * **Pro**: **Future-Ready**: Adopting a modern, evolving standard ensures our architecture remains current.
-* **Con**: **Legacy System Challenges**: Integrating older, non-FHIR systems may require additional effort and custom solutions.
+* **Con**: **Legacy System Challenges**: Integrating older, non-FHIR systems may require additional effort and custom solutions, although this is generally true for any non-standards based system.
 * **Con**: **Potential for Misfit**: FHIR might not be the best choice for every situation.
 
 ### Confirmation
