@@ -15,6 +15,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get next version
+        id: get_version
+        run: |
+          # Get the latest tag
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0")
+          # Increment the version
+          version_number=$(echo $latest_tag | sed 's/v//')
+          next_version_number=$((version_number + 1))
+          echo "tag=v$next_version_number" >> $GITHUB_OUTPUT
 
       - name: Set up Pandoc
         run: |
@@ -23,28 +35,13 @@ jobs:
 
       - name: Convert Markdown to Word
         run: |
-          pandoc doc/design-authority/dhcw/architecture-decision-record-template.md -o adr-template.docx
+          pandoc doc/design-authority/dhcw/architecture-decision-record-template.md -o architecture-decision-record-template.docx
 
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get_version.outputs.tag }}
+          name: ${{ steps.get_version.outputs.tag }}
+          files: architecture-decision-record-template.docx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: adr-template-${{ github.sha }}
-          release_name: ADR Template ${{ github.sha }}
-          body: |
-            This release contains the latest version of the ADR template in Word format.
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./adr-template.docx
-          asset_name: adr-template.docx
-          asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
