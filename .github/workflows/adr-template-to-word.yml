@@ -1,0 +1,49 @@
+# This workflow converts the ADR template to a Word document and publishes it as a release.
+name: ADR Template to Word
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'doc/design-authority/dhcw/architecture-decision-record-template.md'
+
+jobs:
+  convert-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Convert Markdown to Word
+        run: |
+          pandoc doc/design-authority/dhcw/architecture-decision-record-template.md -o adr-template.docx
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: adr-template-${{ github.sha }}
+          release_name: ADR Template ${{ github.sha }}
+          body: |
+            This release contains the latest version of the ADR template in Word format.
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./adr-template.docx
+          asset_name: adr-template.docx
+          asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
