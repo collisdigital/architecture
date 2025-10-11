@@ -44,6 +44,14 @@ deploy:
 	@echo "The documentation should now be available by browsing https://gigcymru.github.io/architecture/"
 
 ##
+# lint: lint the project documentation using markdownlint-cli2
+##
+.PHONY: lint
+lint:
+	npx markdownlint-cli2 "doc/**/*.md" --config ".github/config/custom.markdownlint.jsonc"
+	@echo "The markdownlint-cli2 command should now be complete."
+
+##
 # newline: display a newline character so we can print prettier messages.
 ##
 .PHONY: newline
