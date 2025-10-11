@@ -124,7 +124,7 @@ This project uses `markdownlint-cli2` to lint the markdown files in the `doc/` d
 To run the linter, you will first need to install it using `npm`:
 
 ```bash
-npm install markdownlint-cli2
+npm install
 ```
 
 Once it is installed, you can run the linter by running the following command:

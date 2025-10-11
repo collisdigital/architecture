@@ -20,7 +20,7 @@ This will start a local server and you can view the documentation by navigating 
 
 This project uses `markdownlint-cli2` to lint the markdown files in the `doc/` directory. To run the linter, you will first need to install it using `npm`:
 
-`npm install markdownlint-cli2`
+`npm install`
 
 Once it is installed, you can run the linter by running the following command:
 
