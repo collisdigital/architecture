@@ -1,31 +1,31 @@
-This repository contains the source for the GIG Cymru architecture documentation website. The following instructions are for an autonomous AI agent to work with this repository.
+# NHS Wales Architecture Documentation Site
 
-### Getting Started
+This repository contains the source for the GIG Cymru architecture documentation
+website. The following instructions are for an autonomous AI agent to work with
+this repository.
 
-To get started, you will need to install the project dependencies. You can do this by running the following command:
+## Environment Setup
 
-`make install`
+- install the `uv` package manager if not already installed: `make install`
+- install the required packages for mkdocs: `make sync`
+- install the `markdownlint-cli2` tool for linting docs: `npm install`
 
-This will install the necessary tools to build and serve the documentation.
+## Running Locally
 
-### Building and Serving the Documentation
+- execute `make build` to verify the site builds successfully.
+- execute `make run` to run the site locally, it will be available at `http://127.0.0.1:8000/`
 
-To build and serve the documentation locally, run the following command:
+## Conventions
 
-`make run`
+- All documentation (in Markdown format) to be published on the site lives under the `doc/` path.
+- Markdown documents should adhere to a 120 character line limit, unless it breaks URLs/links/special elements.
+- See `doc/decisions/meta-decisions/architecture-decision-records-naming-conventions/index.md` for ADR naming conventions and rules.
+- Mermaid is used to add diagrams to Markdown files, see `doc/decisions/meta-decisions/use-mermaid-for-documenting-diagrams/index.md` for information.
+- Architecture Decision Records (ADRs) reside under the `doc/decisions/` path.
+- Architecture Principles reside under the `doc/principles/` path.
+- ADRs should follow the agreed template found here: `doc/design-authority/dhcw/architecture-decision-record-template.md`
 
-This will start a local server and you can view the documentation by navigating to `http://127.0.0.1:8000/` in your browser.
+## PR instructions
 
-### Linting the Documentation
-
-This project uses `markdownlint-cli2` to lint the markdown files in the `doc/` directory. To run the linter, you will first need to install it using `npm`:
-
-`npm install`
-
-Once it is installed, you can run the linter by running the following command:
-
-`make lint`
-
-This will check all the markdown files in the `doc/` directory and report any errors.
-
-**Important:** Before committing any changes to a Markdown (.md) file under the `doc/` path, you must run the linter and resolve any reported issues.
+- Always run `make lint` before committing and fix any lint issues.
+- Always run `make build` before committing and fix any WARNINGS raised.
