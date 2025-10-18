@@ -35,13 +35,16 @@ jobs:
 
       - name: Convert Markdown to Word
         run: |
-          pandoc doc/design-authority/dhcw/architecture-decision-record-template.md -o architecture-decision-record-template.docx
+          pandoc doc/design-authority/dhcw/architecture-decision-record-template.md --reference-doc=.github/workflows/markdown-to-word-styles.docx -o architecture-decision-record-template.docx
+          pandoc doc/design-authority/dhcw/architecture-design-overview-template.md --reference-doc=.github/workflows/markdown-to-word-styles.docx -o architecture-design-overview-template.docx
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.get_version.outputs.tag }}
           name: ${{ steps.get_version.outputs.tag }}
-          files: architecture-decision-record-template.docx
+          files: |
+            architecture-decision-record-template.docx
+            architecture-design-overview-template.docx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
