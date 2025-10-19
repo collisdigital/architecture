@@ -159,16 +159,13 @@ You can also run the conversion manually. This is helpful for testing changes to
 
 *   [Pandoc](https://pandoc.org/installing.html) installed on your local machine.
 
-**Commands:**
+**Command:**
 
-To convert the documents, run the following commands from the root of the repository:
+To convert the documents, run the following command from the root of the repository:
 
 ```bash
-# Convert Architecture Decision Record Template
-pandoc doc/design-authority/dhcw/architecture-decision-record-template.md --reference-doc=.github/workflows/markdown-to-word-styles.docx -o architecture-decision-record-template.docx
-
-# Convert Architecture Design Overview Template
-pandoc doc/design-authority/dhcw/architecture-design-overview-template.md --reference-doc=.github/workflows/markdown-to-word-styles.docx -o architecture-design-overview-template.docx
+# Convert all markdown files to word documents
+make word
 ```
 
 ### Styling
