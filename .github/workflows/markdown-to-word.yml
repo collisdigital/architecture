@@ -27,7 +27,7 @@ jobs:
           # Increment the version
           version_number=$(echo $latest_tag | sed 's/v//')
           next_version_number=$((version_number + 1))
-          echo "tag=v$next_version_number" >> $GITHUB_OUTPUT
+          echo "RELEASE_TAG=v$next_version_number" >> $GITHUB_ENV
 
       - name: Set up Pandoc
         run: |
@@ -37,13 +37,26 @@ jobs:
       - name: Convert Markdown to Word
         run: make word
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.get_version.outputs.tag }}
-          name: ${{ steps.get_version.outputs.tag }}
+          draft: true
+          prerelease: false
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
           files: |
             architecture-decision-record-template.docx
             architecture-design-overview-template.docx
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Publish Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
