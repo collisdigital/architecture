@@ -118,6 +118,24 @@ For those familiar with Make:
 
 View the documentation at: ``http://127.0.0.1:8000/``
 
+## Testing
+
+This project uses [Playwright](https://playwright.dev/) for end-to-end (E2E) testing. The tests are located in the `tests/` directory and are configured to run against Chromium by default.
+
+To run the tests, you will first need to install the necessary dependencies using `npm`:
+
+```bash
+npm install
+```
+
+Once the dependencies are installed, you can run the E2E tests with the following command:
+
+```bash
+npm run test
+```
+
+This will launch the Playwright test runner and execute the tests.
+
 ## Linting
 
 This project uses `markdownlint-cli2` to lint the markdown files in the `doc/` directory.

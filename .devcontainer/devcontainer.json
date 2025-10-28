@@ -1,18 +1,13 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/python
+// For format details, see https://aka.ms/devcontainer.json.
 {
-    "name": "ADR Python Dev Container",
-    "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
-    "features": {
-        "ghcr.io/va-h/devcontainers-features/uv:1": {}
+    "name": "Python/Node.js + Playwright",
+    "build": {
+        "dockerfile": "Dockerfile"
     },
     
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [8000],
     
-    // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "uv sync",
-
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {
@@ -20,7 +15,10 @@
                 "DavidAnson.vscode-markdownlint",
                 "streetsidesoftware.code-spell-checker",
                 "bierner.markdown-mermaid",
-                "redhat.vscode-yaml"
+                "redhat.vscode-yaml",
+                "ms-playwright.playwright",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint"
             ],
             "settings": {
                 "editor.rulers": [80, 120] // Add a vertical ruler at the 80 and 120 characters
