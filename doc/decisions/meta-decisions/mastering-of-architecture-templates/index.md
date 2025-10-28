@@ -173,4 +173,4 @@ outweigh this drawback.
 
 This decision builds upon the principles set out in a previous decision:
 
-* [Format Architecture Decision Records with Markdown](doc/decisions/meta-decisions/format-architecture-decision-records-with-markdown)
+* [Format Architecture Decision Records with Markdown](../format-architecture-decision-records-with-markdown/index.md)

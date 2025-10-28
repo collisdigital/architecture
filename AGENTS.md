@@ -8,7 +8,7 @@ this repository.
 
 - install the `uv` package manager if not already installed: `make install`
 - install the required packages for mkdocs: `make sync`
-- install the `markdownlint-cli2` tool for linting docs: `npm install`
+- install the `markdownlint-cli2` and `playwright` tools for linting docs and end to end testing: `npm install`
 
 ## Running Locally
 
@@ -29,3 +29,4 @@ this repository.
 
 - Always run `make lint` before committing and fix any lint issues.
 - Always run `make build` before committing and fix any WARNINGS raised.
+- Always run `make test` before committing to ensure all Playwright tests pass.

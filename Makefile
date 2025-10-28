@@ -65,6 +65,21 @@ lint:
 	@echo "The markdownlint-cli2 command should now be complete."
 
 ##
+# test: run the Playwright end-to-end tests.
+##
+.PHONY: test
+test:
+	npm run test
+	@echo "The tests should have now been run."
+
+##
+# test-report: run the Playwright results reporting local server.
+##
+.PHONY: test-report
+test-report:
+	npx playwright show-report
+
+##
 # word: convert markdown files to word documents using pandoc
 ##
 .PHONY: word

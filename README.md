@@ -46,9 +46,9 @@ is faster on subsequent launches as the environment is then cached.
 
 **Prerequisites:**
 
-* Python 3.11 or higher
+* Python 3.13 or higher
 * [uv](https://github.com/astral-sh/uv) for package/env management
-* [npm](https://github.com/npm/cli) for markdown linting
+* [npm](https://github.com/npm/cli) for Markdown Linting and Playwright testing
 * Git
 
 **Setup Steps:**
@@ -118,6 +118,31 @@ For those familiar with Make:
 
 View the documentation at: ``http://127.0.0.1:8000/``
 
+## Testing
+
+This project uses [Playwright](https://playwright.dev/) for end-to-end (E2E)
+testing. The tests are located in the `tests/` directory and are configured to
+run against Chromium by default.
+
+To run the tests, you can use the following `make` command, which will handle
+installing all dependencies and running the tests:
+
+```bash
+make test
+```
+
+This will automatically start the local development server, run the Playwright
+tests against it, and then shut the server down.
+
+To run the Playwright results server after running the tests, you can use
+the following `make` command:
+
+```bash
+make test-results
+```
+
+The HTML report is then accessible at ``http://localhost:9323/``.
+
 ## Linting
 
 This project uses `markdownlint-cli2` to lint the markdown files in the `doc/` directory.
@@ -146,8 +171,8 @@ The conversion is handled by [Pandoc](https://pandoc.org/), a universal document
 
 The GitHub Action workflow is defined in `.github/workflows/markdown-to-word.yml`. It is triggered on pushes to the `main` branch that include changes to the following files:
 
-*   `doc/design-authority/dhcw/architecture-decision-record-template.md`
-*   `doc/design-authority/dhcw/architecture-design-overview-template.md`
+* `doc/design-authority/dhcw/architecture-decision-record-template.md`
+* `doc/design-authority/dhcw/architecture-design-overview-template.md`
 
 When triggered, the workflow creates a new release with the converted `.docx` files.
 
@@ -157,7 +182,7 @@ You can also run the conversion manually. This is helpful for testing changes to
 
 **Prerequisites:**
 
-*   [Pandoc](https://pandoc.org/installing.html) installed on your local machine.
+* [Pandoc](https://pandoc.org/installing.html) installed on your local machine.
 
 **Command:**
 

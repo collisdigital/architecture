@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+    "name": "Python/Node.js + Playwright",
+    "build": {
+        "context": "..",
+        "dockerfile": "Dockerfile"
+    },
+
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "true",
+            "username": "pwuser",
+            "uid": "1000",
+            "gid": "1000",
+            "upgradePackages": "false"
+        }
+    },
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // 8000 = mkdocs local server
+    // 9323 = Playwright reporting server
+    "forwardPorts": [8000, 9323],
+
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "uv sync && npm install",
+
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "DavidAnson.vscode-markdownlint",
+                "streetsidesoftware.code-spell-checker",
+                "bierner.markdown-mermaid",
+                "redhat.vscode-yaml",
+                "ms-playwright.playwright",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint"
+            ],
+            "settings": {
+                "editor.rulers": [80, 120] // Add a vertical ruler at the 80 and 120 characters
+            }
+        }
+    }
+}
