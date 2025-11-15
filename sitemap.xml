@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://gigcymru.github.io/architecture/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/principles/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/design-authority/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/design-authority/dhcw/architecture-decision-record-template/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/design-authority/dhcw/architecture-decision-record-process/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/design-authority/dhcw/architecture-design-overview-template/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/design-authority/ea-metamodel/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/decisions/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/decisions/technical-decisions/cloud-hosting-for-documents-capabilities/</loc>
+      </url>
+      <url>
+        <loc>https://gigcymru.github.io/architecture/decisions/technical-decisions/document-services/</loc>
+      </url>
+</urlset>
