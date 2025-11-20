@@ -75,6 +75,7 @@ nav = [
         {"Ways of Working" = "decisions/process-decisions/ways-of-working/"},
       ]},
       {"Technical Decisions" = [
+        {"Paved Road Language and Tooling Standards" = "decisions/technical-decisions/paved-road-language-and-tooling-standards/index.md"},
         {"Cloud Hosting for Documents Capabilities" = "decisions/technical-decisions/cloud-hosting-for-documents-capabilities/README.md"},
         {"Cloud Provider Workload Placement" = "decisions/technical-decisions/cloud-workload-placement/"},
         {"Containerization" = "decisions/technical-decisions/containerization/"},
@@ -82,6 +83,7 @@ nav = [
         {"FHIR for Interoperability First" = "decisions/technical-decisions/fhir-for-interoperability-first/"},
         {"Live DORA Metrics Dashboards" = "decisions/technical-decisions/live-dora-metrics-dashboards/"},
         {"Python Script Runner" = "decisions/technical-decisions/python-script-runner/"},
+        {"Paved Road Language and Tooling" = "decisions/technical-decisions/paved-road-language-and-tooling-standards/"}
       ]},
     ]},
   ]},
